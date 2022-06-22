@@ -1,20 +1,8 @@
-package MooseX::LocalAttribute;
-
-use strict;
-use warnings;
-
-use Scope::Guard 'guard';
-use Exporter 'import';
-
-our @EXPORT = qw/ local_attribute /;
-
-our $VERSION = '0.01';
-
-=head1 NAME
+# NAME
 
 MooseX::LocalAttribute - local-ize attributes on Moose-ish objects
 
-=head1 SYNOPSIS
+# SYNOPSIS
 
     use MooseX::LocalAttribute;
 
@@ -28,7 +16,7 @@ MooseX::LocalAttribute - local-ize attributes on Moose-ish objects
     }
     print $freddy->name; # Freddy
 
-=head1 DESCRIPTION
+# DESCRIPTION
 
 This module provides a mechanism to temporarily replace the value of an
 object attribute with a different variable. In typical object oriented Perl
@@ -43,75 +31,40 @@ rather than to rumage around in the internals of an object. This is especially
 true if one does not know whether the object is in fact a hash reference under
 the hood.
 
-When a variable is localised with C<local>, a backup of that variable is made.
+When a variable is localised with `local`, a backup of that variable is made.
 Perl then places a directive on the stack that restores the variable when it
 is goes out of scope. This module does the same thing for attributes of
 objects.
 
-=head1 WHICH OBJECTS DOES THIS WORK FOR
+# WHICH OBJECTS DOES THIS WORK FOR
 
 While this module is called MooseX::LocalAttribute, it will work for all kinds
 of objects, as long as there is a read/write accessor. It has been tested for
-L<Moose>, L<Mouse>, L<Moo>, L<Mo>, L<Mojo::Base>, L<Class::Accessor> and
-classic Perl OO code using C<bless> and hand-rolled accessors, but there is a
+[Moose](https://metacpan.org/pod/Moose), [Mouse](https://metacpan.org/pod/Mouse), [Moo](https://metacpan.org/pod/Moo), [Mo](https://metacpan.org/pod/Mo), [Mojo::Base](https://metacpan.org/pod/Mojo%3A%3ABase), [Class::Accessor](https://metacpan.org/pod/Class%3A%3AAccessor) and
+classic Perl OO code using `bless` and hand-rolled accessors, but there is a
 good chance it will work on other object implementations too.
 
-=head1 EXPORTS
+# EXPORTS
 
-=head2 local_attribute($obj, $attr, $val)
+## local\_attribute($obj, $attr, $val)
 
-Takes an object C<$obj> and temporarily localizes the attribute C<$attr> on
-it to C<$val>. It returns a L<Scope::Guard> object that will restore the
-original value of C<$attr> when it goes out of scope.
+Takes an object `$obj` and temporarily localizes the attribute `$attr` on
+it to `$val`. It returns a [Scope::Guard](https://metacpan.org/pod/Scope%3A%3AGuard) object that will restore the
+original value of `$attr` when it goes out of scope.
 
 This function is exported by default.
 
-=cut
+# SEE ALSO
 
-sub local_attribute {
-    my $obj  = shift;
-    my $attr = shift;
-    my $val  = shift;    ## optional, default to undef
+- [Scope::Guard](https://metacpan.org/pod/Scope%3A%3AGuard)
+- [Moose](https://metacpan.org/pod/Moose)
+- [Moo](https://metacpan.org/pod/Moo)
 
-    die qq{Attribute '$attr' does not exist} unless $obj->can($attr);
+# AUTHOR
 
-    my $backup = $obj->$attr();
-    my $guard  = guard {
-        $obj->$attr($backup)
-    };
-
-    $obj->$attr($val);
-
-    return $guard;
-}
-
-=head1 SEE ALSO
-
-=over
-
-=item *
-
-L<Scope::Guard>
-
-=item *
-
-L<Moose>
-
-=item *
-
-L<Moo>
-
-=back
-
-=head1 AUTHOR
-
-=head1 COPYRIGHT
+# COPYRIGHT
 
 Copyright (c) 2022 bt Julien Fiegehenn.
 
 This is free software; you can redistribute it and/or modify it under the same
 terms as the Perl 5 programming language system itself.
-
-=cut
-
-1;

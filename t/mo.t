@@ -2,13 +2,13 @@ use strict;
 use warnings;
 
 use Test::More;
-use Test::Requires 'Moose';
+use Test::Requires 'Mo';
 
 use FindBin qw($Bin);
 use lib "$Bin/lib";
-use Tester::Moose;
+use Tester::Mo;
 use Tester;
 
-Tester::run_tests( Tester::Moose->new );
+Tester::run_tests( Tester::Mo->new );
 
 done_testing;
