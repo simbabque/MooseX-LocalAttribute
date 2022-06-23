@@ -1,6 +1,6 @@
 Revision history for Perl extension MooseX::LocalAttribute
 
-{{$NEXT}}
+0.02      2022-06-23 13:31:06Z
     - Fix POD and release stable version
 
 0.01      2022-06-23 11:34:37Z (TRIAL RELEASE)
