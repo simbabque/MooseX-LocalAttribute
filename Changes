@@ -1,6 +1,7 @@
 Revision history for Perl extension MooseX::LocalAttribute
 
 {{$NEXT}}
+    - Fix POD and release stable version
 
 0.01      2022-06-23 11:34:37Z (TRIAL RELEASE)
     - Initial release
