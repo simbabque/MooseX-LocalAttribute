@@ -8,7 +8,7 @@ has hashref => (
 
 has string => (
     is      => 'rw',
-    default => sub { 'string' },
+    default => sub {'string'},
 );
 
 sub change_hashref {
