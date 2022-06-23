@@ -116,9 +116,11 @@ L<Moo>
 
 =head1 AUTHOR
 
+Julien Fiegehenn <simbabque@cpan.org>
+
 =head1 COPYRIGHT
 
-Copyright (c) 2022 bt Julien Fiegehenn.
+Copyright (c) 2022, Julien Fiegehenn.
 
 This is free software; you can redistribute it and/or modify it under the same
 terms as the Perl 5 programming language system itself.
