@@ -11,9 +11,17 @@ sub run_tests {
     my ($obj) = @_;
 
     subtest 'errors' => sub {
-        throws_ok { local_attribute( $obj, 'no_such_attr', my $foo ) }
+        throws_ok {
+            local_attribute( $obj, 'string', my $foo )
+        }
+        qr/local_attribute must not be called in void context/,
+          'errors when called in void context';
+        throws_ok {
+            my $guard = local_attribute( $obj, 'no_such_attr', my $foo )
+        }
         qr/Attribute 'no_such_attr' does not exist/,
           'errors when objects does not have attribute';
+
     };
 
     subtest 'string attribute' => sub {

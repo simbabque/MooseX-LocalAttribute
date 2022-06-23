@@ -64,6 +64,15 @@ Takes an object C<$obj> and temporarily localizes the attribute C<$attr> on
 it to C<$val>. It returns a L<Scope::Guard> object that will restore the
 original value of C<$attr> when it goes out of scope.
 
+    my $guard = local_attribute( $bob, 'name', 'joe' ); # $bob->name eq 'joe'
+
+You B<must> always capture the return value of C<local_attribute> and store it
+in a variable. It will die if called in void context, because the underlying
+L<Scope::Guard> object cannot work in void context. Your attribute would be
+replaced permanently.
+
+    local_attribute( $foo, 'attr', 'new value' ); # BOOM
+
 This function is exported by default.
 
 =cut
@@ -73,6 +82,8 @@ sub local_attribute {
     my $attr = shift;
     my $val  = shift;    ## optional, default to undef
 
+    die qq{local_attribute must not be called in void context}
+      unless defined wantarray;
     die qq{Attribute '$attr' does not exist} unless $obj->can($attr);
 
     my $backup = $obj->$attr();
