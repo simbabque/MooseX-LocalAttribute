@@ -12,6 +12,9 @@ on:
     - cron: "15 4 * * 0" # Every Sunday morning
   workflow_dispatch:
 
+env:
+  MOJO_REQUIRED_VERSION: "5.16" # Bump this if Mojolicious increases their minimum Perl version
+
 jobs:
   build-job:
     name: Build distribution
@@ -79,11 +82,18 @@ jobs:
         with:
           name: build_dir
           path: .
-      - name: install deps using cpm
+      - name: install deps using cpm - with Mojolicious
+        if: matrix.perl-version >= env.MOJO_REQUIRED_VERSION && matrix.perl-version != '5.8'
         uses: perl-actions/install-with-cpm@v1
         with:
           cpanfile: "cpanfile"
           args: "--with-suggests --with-recommends --with-test"
+      - name: install deps using cpm - without Mojolicious
+        if: matrix.perl-version < env.MOJO_REQUIRED_VERSION || matrix.perl-version == '5.8'
+        uses: perl-actions/install-with-cpm@v1
+        with:
+          cpanfile: "cpanfile"
+          args: "--without-suggests --with-recommends --with-test"
       - run: prove -lr t
         env:
           AUTHOR_TESTING: 0
@@ -121,11 +131,18 @@ jobs:
         with:
           name: build_dir
           path: .
-      - name: install deps using cpm
+      - name: install deps using cpm - with Mojolicious
+        if: matrix.perl-version >= env.MOJO_REQUIRED_VERSION && matrix.perl-version != '5.8'
         uses: perl-actions/install-with-cpm@v1
         with:
           cpanfile: "cpanfile"
           args: "--with-suggests --with-recommends --with-test"
+      - name: install deps using cpm - without Mojolicious
+        if: matrix.perl-version < env.MOJO_REQUIRED_VERSION || matrix.perl-version == '5.8'
+        uses: perl-actions/install-with-cpm@v1
+        with:
+          cpanfile: "cpanfile"
+          args: "--without-suggests --with-recommends --with-test"
       - run: prove -lr t
         env:
           AUTHOR_TESTING: 0
@@ -158,11 +175,18 @@ jobs:
         with:
           name: build_dir
           path: .
-      - name: install deps using cpm
+      - name: install deps using cpm - with Mojolicious
+        if: matrix.perl-version >= env.MOJO_REQUIRED_VERSION
         uses: perl-actions/install-with-cpm@v1
         with:
           cpanfile: "cpanfile"
           args: "--with-suggests --with-recommends --with-test"
+      - name: install deps using cpm - without Mojolicious
+        if: matrix.perl-version < env.MOJO_REQUIRED_VERSION
+        uses: perl-actions/install-with-cpm@v1
+        with:
+          cpanfile: "cpanfile"
+          args: "--without-suggests --with-recommends --with-test"
       - run: prove -lr t
         env:
           AUTHOR_TESTING: 0

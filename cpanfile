@@ -17,5 +17,5 @@ on 'test' => sub {
     recommends 'Mo';
     recommends 'Mouse';
     recommends 'Class::Accessor';
-    recommends 'Mojolicious';
+    suggests 'Mojolicious';
 };
