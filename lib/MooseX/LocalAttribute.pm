@@ -8,7 +8,7 @@ use Exporter 'import';
 
 our @EXPORT = qw/ local_attribute /;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 =head1 NAME
 
