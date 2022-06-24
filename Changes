@@ -1,5 +1,7 @@
 Revision history for Perl extension MooseX::LocalAttribute
 
+{{$NEXT}}
+
 0.03      2022-06-24 16:48:05Z
     - Support Util::H2O
 
