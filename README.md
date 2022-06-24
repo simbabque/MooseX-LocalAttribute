@@ -40,23 +40,23 @@ objects.
 
 While this module is called MooseX::LocalAttribute, it will work for all kinds
 of objects, as long as there is a read/write accessor. It has been tested for
-[Moose](https://metacpan.org/pod/Moose), [Mouse](https://metacpan.org/pod/Mouse), [Moo](https://metacpan.org/pod/Moo), [Mo](https://metacpan.org/pod/Mo), [Mojo::Base](https://metacpan.org/pod/Mojo::Base), [Class::Accessor](https://metacpan.org/pod/Class::Accessor) and
-classic Perl OO code using `bless` and hand-rolled accessors, but there is a
-good chance it will work on other object implementations too.
+[Moose](https://metacpan.org/pod/Moose), [Mouse](https://metacpan.org/pod/Mouse), [Moo](https://metacpan.org/pod/Moo), [Mo](https://metacpan.org/pod/Mo), [Mojo::Base](https://metacpan.org/pod/Mojo%3A%3ABase), [Class::Accessor](https://metacpan.org/pod/Class%3A%3AAccessor),
+[Util::H2O](https://metacpan.org/pod/Util%3A%3AH2O) and classic Perl OO code using `bless` and hand-rolled accessors,
+but there is a good chance it will work on other object implementations too.
 
 # EXPORTS
 
 ## local\_attribute($obj, $attr, $val)
 
 Takes an object `$obj` and temporarily localizes the attribute `$attr` on
-it to `$val`. It returns a [Scope::Guard](https://metacpan.org/pod/Scope::Guard) object that will restore the
+it to `$val`. It returns a [Scope::Guard](https://metacpan.org/pod/Scope%3A%3AGuard) object that will restore the
 original value of `$attr` when it goes out of scope.
 
     my $guard = local_attribute( $bob, 'name', 'joe' ); # $bob->name eq 'joe'
 
 You **must** always capture the return value of `local_attribute` and store it
 in a variable. It will die if called in void context, because the underlying
-[Scope::Guard](https://metacpan.org/pod/Scope::Guard) object cannot work in void context. Your attribute would be
+[Scope::Guard](https://metacpan.org/pod/Scope%3A%3AGuard) object cannot work in void context. Your attribute would be
 replaced permanently.
 
     local_attribute( $foo, 'attr', 'new value' ); # BOOM
@@ -65,7 +65,7 @@ This function is exported by default.
 
 # SEE ALSO
 
-- [Scope::Guard](https://metacpan.org/pod/Scope::Guard)
+- [Scope::Guard](https://metacpan.org/pod/Scope%3A%3AGuard)
 - [Moose](https://metacpan.org/pod/Moose)
 - [Moo](https://metacpan.org/pod/Moo)
 

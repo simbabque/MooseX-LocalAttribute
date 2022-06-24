@@ -52,7 +52,8 @@
             "Mo" : "0",
             "Moo" : "0",
             "Moose" : "0",
-            "Mouse" : "0"
+            "Mouse" : "0",
+            "Util::H2O" : "0"
          },
          "requires" : {
             "ExtUtils::MakeMaker" : "0",
@@ -79,10 +80,10 @@
          "web" : "https://github.com/simbabque/MooseX-LocalAttribute"
       }
    },
-   "version" : "0.02",
+   "version" : "0.03",
    "x_Dist_Zilla" : {
       "perl" : {
-         "version" : "5.026001"
+         "version" : "5.028000"
       },
       "plugins" : [
          {
@@ -142,7 +143,7 @@
             "class" : "Dist::Zilla::Plugin::Git::Contributors",
             "config" : {
                "Dist::Zilla::Plugin::Git::Contributors" : {
-                  "git_version" : "2.25.1",
+                  "git_version" : "2.34.1",
                   "include_authors" : 0,
                   "include_releaser" : 1,
                   "order_by" : "name",
@@ -240,12 +241,16 @@
                   "untracked_files" : "die"
                },
                "Dist::Zilla::Role::Git::DirtyFiles" : {
-                  "allow_dirty" : [],
+                  "allow_dirty" : [
+                     "LICENSE",
+                     "META.json",
+                     "README.md"
+                  ],
                   "allow_dirty_match" : [],
                   "changelog" : "Changes"
                },
                "Dist::Zilla::Role::Git::Repo" : {
-                  "git_version" : "2.25.1",
+                  "git_version" : "2.34.1",
                   "repo_root" : "."
                }
             },
@@ -361,7 +366,7 @@
                   "changelog" : "Changes"
                },
                "Dist::Zilla::Role::Git::Repo" : {
-                  "git_version" : "2.25.1",
+                  "git_version" : "2.34.1",
                   "repo_root" : "."
                },
                "Dist::Zilla::Role::Git::StringFormatter" : {
@@ -378,12 +383,12 @@
                   "branch" : null,
                   "changelog" : "Changes",
                   "signed" : 0,
-                  "tag" : "v0.02",
+                  "tag" : "v0.03",
                   "tag_format" : "v%V",
                   "tag_message" : "v%V"
                },
                "Dist::Zilla::Role::Git::Repo" : {
-                  "git_version" : "2.25.1",
+                  "git_version" : "2.34.1",
                   "repo_root" : "."
                },
                "Dist::Zilla::Role::Git::StringFormatter" : {
@@ -434,7 +439,7 @@
                   "changelog" : "Changes"
                },
                "Dist::Zilla::Role::Git::Repo" : {
-                  "git_version" : "2.25.1",
+                  "git_version" : "2.34.1",
                   "repo_root" : "."
                },
                "Dist::Zilla::Role::Git::StringFormatter" : {
@@ -454,7 +459,7 @@
                   "remotes_must_exist" : 1
                },
                "Dist::Zilla::Role::Git::Repo" : {
-                  "git_version" : "2.25.1",
+                  "git_version" : "2.34.1",
                   "repo_root" : "."
                }
             },
@@ -530,8 +535,8 @@
          "version" : "6.025"
       }
    },
-   "x_generated_by_perl" : "v5.26.1",
-   "x_serialization_backend" : "Cpanel::JSON::XS version 4.02",
+   "x_generated_by_perl" : "v5.28.0",
+   "x_serialization_backend" : "Cpanel::JSON::XS version 4.04",
    "x_spdx_expression" : "Artistic-1.0-Perl OR GPL-1.0-or-later"
 }
 
