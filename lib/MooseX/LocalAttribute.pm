@@ -22,7 +22,7 @@ MooseX::LocalAttribute - local-ize attributes on Moose-ish objects
     print $freddy->name; # Freddy
     {
         my $temporary_name = 'Mr Orange';
-        my $guard = local_attribute( $freddy, "name", \$temporary_name );
+        my $guard = local_attribute( $freddy, "name", $temporary_name );
         print $freddy->name; # Mr Orange
         steal_diamonds( $freddy );
     }
