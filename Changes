@@ -1,6 +1,6 @@
 Revision history for Perl extension MooseX::LocalAttribute
 
-{{$NEXT}}
+0.04      2022-06-26 14:34:00Z
     - Support Object::Pad
     - Documentation on modules that are not supported
     - Tests for support of Mouse accidentally used Moo and would fail in a
