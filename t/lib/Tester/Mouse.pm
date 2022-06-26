@@ -1,5 +1,5 @@
 package Tester::Mouse;
-use Moo;
+use Mouse;
 
 has hashref => (
     is      => 'rw',
