@@ -12,11 +12,11 @@ on 'test' => sub {
     requires 'Test::Exception';
     requires 'Test::More';
     requires 'Test::Requires';
-    recommends 'Moose';
-    recommends 'Moo';
-    recommends 'Mo';
-    recommends 'Mouse';
     recommends 'Class::Accessor';
+    recommends 'Mo';
+    recommends 'Moo';
+    recommends 'Moose';
+    recommends 'Mouse';
     recommends 'Util::H2O';
     suggests 'Mojolicious';
     suggests 'Object::Pad';

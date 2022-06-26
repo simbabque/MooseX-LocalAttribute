@@ -97,6 +97,20 @@ sub local_attribute {
     return $guard;
 }
 
+=head1 OBJECTS THIS DOES NOT WORK FOR
+
+=over
+
+=item *
+
+L<Class::Std> - this does not support combined getter/setter methods
+
+=item *
+
+L<Object::Tiny> - this creates read-only accessors
+
+=back
+
 =head1 SEE ALSO
 
 =over

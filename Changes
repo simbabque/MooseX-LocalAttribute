@@ -2,6 +2,7 @@ Revision history for Perl extension MooseX::LocalAttribute
 
 {{$NEXT}}
     - Support Object::Pad
+    - Documentation on modules that are not supported
     - Tests for support of Mouse accidentally used Moo and would fail in a
       situation where Mouse was installed, but Moo was not
 

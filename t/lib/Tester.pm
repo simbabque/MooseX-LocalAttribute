@@ -31,6 +31,7 @@ sub run_tests {
         my $guard = local_attribute( $obj, 'string', $temp );
         isa_ok $guard, 'Scope::Guard';
         is $obj->string, 123, 'string attribute has been changed';
+        is $temp, 123, '... and our variable is still there';
 
         undef $guard;
         is $obj->string, 'string', 'string attribute has changed back';
