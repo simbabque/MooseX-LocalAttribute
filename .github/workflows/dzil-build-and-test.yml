@@ -13,7 +13,7 @@ on:
   workflow_dispatch:
 
 env:
-  MOJO_REQUIRED_VERSION: "5.16" # Bump this if Mojolicious increases their minimum Perl version
+  MODERN_MIN_PERL_VERSION: "5.18" # Bump this if Mojolicious increases their minimum Perl version
 
 jobs:
   build-job:
@@ -82,14 +82,14 @@ jobs:
         with:
           name: build_dir
           path: .
-      - name: install deps using cpm - with Mojolicious
-        if: matrix.perl-version >= env.MOJO_REQUIRED_VERSION && matrix.perl-version != '5.8'
+      - name: install deps using cpm - with Mojo and Object::Pad
+        if: matrix.perl-version >= env.MODERN_MIN_PERL_VERSION && matrix.perl-version != '5.8'
         uses: perl-actions/install-with-cpm@v1
         with:
           cpanfile: "cpanfile"
           args: "--with-suggests --with-recommends --with-test"
-      - name: install deps using cpm - without Mojolicious
-        if: matrix.perl-version < env.MOJO_REQUIRED_VERSION || matrix.perl-version == '5.8'
+      - name: install deps using cpm - without Mojo and Object::Pad
+        if: matrix.perl-version < env.MODERN_MIN_PERL_VERSION || matrix.perl-version == '5.8'
         uses: perl-actions/install-with-cpm@v1
         with:
           cpanfile: "cpanfile"
@@ -131,14 +131,14 @@ jobs:
         with:
           name: build_dir
           path: .
-      - name: install deps using cpm - with Mojolicious
-        if: matrix.perl-version >= env.MOJO_REQUIRED_VERSION && matrix.perl-version != '5.8'
+      - name: install deps using cpm - with Mojo and Object::Pad
+        if: matrix.perl-version >= env.MODERN_MIN_PERL_VERSION && matrix.perl-version != '5.8'
         uses: perl-actions/install-with-cpm@v1
         with:
           cpanfile: "cpanfile"
           args: "--with-suggests --with-recommends --with-test"
-      - name: install deps using cpm - without Mojolicious
-        if: matrix.perl-version < env.MOJO_REQUIRED_VERSION || matrix.perl-version == '5.8'
+      - name: install deps using cpm - without Mojo and Object::Pad
+        if: matrix.perl-version < env.MODERN_MIN_PERL_VERSION || matrix.perl-version == '5.8'
         uses: perl-actions/install-with-cpm@v1
         with:
           cpanfile: "cpanfile"
@@ -175,14 +175,14 @@ jobs:
         with:
           name: build_dir
           path: .
-      - name: install deps using cpm - with Mojolicious
-        if: matrix.perl-version >= env.MOJO_REQUIRED_VERSION
+      - name: install deps using cpm - with Mojo and Object::Pad
+        if: matrix.perl-version >= env.MODERN_MIN_PERL_VERSION
         uses: perl-actions/install-with-cpm@v1
         with:
           cpanfile: "cpanfile"
           args: "--with-suggests --with-recommends --with-test"
-      - name: install deps using cpm - without Mojolicious
-        if: matrix.perl-version < env.MOJO_REQUIRED_VERSION
+      - name: install deps using cpm - without Mojo and Object::Pad
+        if: matrix.perl-version < env.MODERN_MIN_PERL_VERSION
         uses: perl-actions/install-with-cpm@v1
         with:
           cpanfile: "cpanfile"
