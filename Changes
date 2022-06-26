@@ -1,6 +1,9 @@
 Revision history for Perl extension MooseX::LocalAttribute
 
 {{$NEXT}}
+    - Support Object::Pad
+    - Tests for support of Mouse accidentally used Moo and would fail in a
+      situation where Mouse was installed, but Moo was not
 
 0.03      2022-06-24 16:48:05Z
     - Support Util::H2O

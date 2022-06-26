@@ -19,4 +19,5 @@ on 'test' => sub {
     recommends 'Class::Accessor';
     recommends 'Util::H2O';
     suggests 'Mojolicious';
+    suggests 'Object::Pad';
 };
