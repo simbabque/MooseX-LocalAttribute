@@ -1,5 +1,7 @@
 Revision history for Perl extension MooseX::LocalAttribute
 
+{{$NEXT}}
+
 0.05      2022-06-27 10:36:12Z
     - Fix typo in synopsis (#2)
 
