@@ -41,7 +41,7 @@ objects.
 While this module is called MooseX::LocalAttribute, it will work for all kinds
 of objects, as long as there is a read/write accessor. It has been tested for
 [Moose](https://metacpan.org/pod/Moose), [Mouse](https://metacpan.org/pod/Mouse), [Moo](https://metacpan.org/pod/Moo), [Mo](https://metacpan.org/pod/Mo), [Mojo::Base](https://metacpan.org/pod/Mojo%3A%3ABase), [Class::Accessor](https://metacpan.org/pod/Class%3A%3AAccessor),
-[Util::H2O](https://metacpan.org/pod/Util%3A%3AH2O), [Object::PAD](https://metacpan.org/pod/Object%3A%3APAD) and classic Perl OO code using `bless` with
+[Util::H2O](https://metacpan.org/pod/Util%3A%3AH2O), [Object::Pad](https://metacpan.org/pod/Object%3A%3APad) and classic Perl OO code using `bless` with
 hand-rolled accessors. There is a good chance it will work on other object
 implementations too.
 
