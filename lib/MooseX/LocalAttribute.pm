@@ -53,8 +53,8 @@ objects.
 While this module is called MooseX::LocalAttribute, it will work for all kinds
 of objects, as long as there is a read/write accessor. It has been tested for
 L<Moose>, L<Mouse>, L<Moo>, L<Mo>, L<Mojo::Base>, L<Class::Accessor>,
-L<Util::H2O>, L<Object::Pad> and classic Perl OO code using C<bless> with
-hand-rolled accessors. There is a good chance it will work on other object
+L<Util::H2O>, L<Object::Pad>, L<Venus>, and classic Perl OO code using C<bless>
+with hand-rolled accessors. There is a good chance it will work on other object
 implementations too.
 
 =head1 EXPORTS
