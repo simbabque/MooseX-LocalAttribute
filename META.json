@@ -65,7 +65,8 @@
          },
          "suggests" : {
             "Mojolicious" : "0",
-            "Object::Pad" : "0"
+            "Object::Pad" : "0",
+            "Venus"       : "0"
          }
       }
    },
